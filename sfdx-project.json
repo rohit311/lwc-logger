@@ -1,0 +1,23 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    },
+    {
+      "path": "force-app/main/default/lwc-logger",
+      "package": "LWC logger",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false,
+      "versionDescription": ""
+    }
+  ],
+  "name": "logger-main-org",
+  "namespace": "logr",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "63.0",
+  "packageAliases": {
+    "LWC logger": "0HogK0000000DV7SAM"
+  }
+}

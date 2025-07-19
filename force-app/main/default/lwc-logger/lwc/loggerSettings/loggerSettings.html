@@ -1,0 +1,71 @@
+<template>
+    <lightning-card title="Logger Settings">
+      <div class="container">
+        <lightning-layout horizontal-align={horizontalAlign}>
+          <lightning-layout-item
+            flexibility="auto"
+            padding="around-small"
+            >
+            <lightning-input
+              type="text"
+              label="Label"
+              value={metaDataLabel}
+              onchange={handleInputFieldChange}
+              data-prop-name="label"
+            ></lightning-input>
+          </lightning-layout-item>
+          <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-input type="text" label="Logger Setting Name" value={metaDataName} onchange={handleInputFieldChange} data-prop-name="name"></lightning-input>
+          </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout horizontal-align={horizontalAlign}>
+          <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-input
+              type="text"
+              label="Component Name"
+              value={metaDataComponentName}
+              onchange={handleInputFieldChange}
+              data-prop-name="componentName"
+            ></lightning-input>
+          </lightning-layout-item>
+          <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-combobox
+              name="progress"
+              label="Status"
+              value={metaDataLevel}
+              placeholder="Select Progress"
+              options={options}
+              onchange={handleLevelChange}
+            ></lightning-combobox>
+          </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout horizontal-align={horizontalAlign}>
+          <lightning-layout-item flexibility="auto">
+            <lightning-textarea
+              label="User Ids"
+              placeholder="Enter user ids seperated by ,"
+              value={metaDataUserIds}
+              onchange={handleInputFieldChange}
+              data-prop-name="userIds"
+            ></lightning-textarea>
+          </lightning-layout-item>
+          <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-input
+              type="checkbox"
+              label="Protected Component"
+              checked={recordIsProtected}
+              onchange={handleInputFieldChange}
+              data-prop-name="protected"
+            ></lightning-input>
+          </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout horizontal-align="center">
+          <lightning-layout-item flexibility="auto">
+            <lightning-button variant="brand" label="Save" title="Save" onclick={handleSaveBtnClick} class="slds-m-top-medium"></lightning-button>
+          </lightning-layout-item>
+         </lightning-layout>
+      </div>
+
+    </lightning-card>
+</template>

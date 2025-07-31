@@ -1,4 +1,6 @@
 import { LightningElement } from 'lwc';
+import LightningToast from "lightning/toast";
+import createCustomMetadataRecord from '@salesforce/apex/LoggerSettingsController.createCustomMetadataRecord';
 
 export default class LoggerSettings extends LightningElement {
   horizontalAlign = "space";
@@ -33,7 +35,41 @@ export default class LoggerSettings extends LightningElement {
   }
 
   handleSaveBtnClick() {
+    const fieldsMap = {};
+    fieldsMap['componentName'] = this.metaDataComponentName;
+    fieldsMap['level'] = this.metaDataLevel;
+    fieldsMap['userIds'] = this.metaDataUserIds;
+    fieldsMap['recordName'] = this.metaDataName;
+    fieldsMap['recordLabel'] = this.metaDataLabel;
+    fieldsMap['protected'] = this.recordIsProtected;
 
+    createCustomMetadataRecord({fieldsMap: fieldsMap})
+    .then(result => {
+      console.log("result: ", result);
+
+      LightningToast.show({
+            label: 'Success',
+            message: 'The record has been saved!',
+            variant: 'success',
+            mode: 'dismissable'
+        });
+
+      setTimeout(() => {
+        this.resetForm();
+      }, 2000);
+    })
+    .catch(error => {
+      console.log("error: ", error);
+    })
+  }
+
+  resetForm() {
+    this.metaDataLabel = "";
+    this.metaDataName = "";
+    this.metaDataComponentName = "";
+    this.metaDataLevel = "";
+    this.metaDataUserIds = "";
+    this.recordIsProtected = false;
   }
 
   get options() {

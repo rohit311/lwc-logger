@@ -3,7 +3,7 @@ import LightningToast from "lightning/toast";
 import createCustomMetadataRecord from '@salesforce/apex/LoggerSettingsController.createCustomMetadataRecord';
 
 export default class LoggerSettings extends LightningElement {
-  horizontalAlign = "space";
+  horizontalAlign = "spread";
   spreadAlign = "spread";
   metaDataLabel = "";
   metaDataName = "";

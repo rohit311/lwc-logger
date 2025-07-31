@@ -1,5 +1,5 @@
 <template>
-    <lightning-card title="Logger Settings">
+    <lightning-card title="Logger Settings" icon-name="standard:settings">
       <div class="container">
         <lightning-layout horizontal-align={horizontalAlign}>
           <lightning-layout-item
@@ -30,6 +30,7 @@
           </lightning-layout-item>
           <lightning-layout-item flexibility="auto" padding="around-small">
             <lightning-combobox
+              class="combobox-right-align"
               name="progress"
               label="Status"
               value={metaDataLevel}
@@ -42,6 +43,7 @@
         <lightning-layout horizontal-align={horizontalAlign}>
           <lightning-layout-item flexibility="auto">
             <lightning-textarea
+              class="textarea-left-align"
               label="User Ids"
               placeholder="Enter user ids seperated by ,"
               value={metaDataUserIds}
@@ -51,6 +53,7 @@
           </lightning-layout-item>
           <lightning-layout-item flexibility="auto" padding="around-small">
             <lightning-input
+              class="checkbox-right-align"
               type="checkbox"
               label="Protected Component"
               checked={recordIsProtected}

@@ -1,3 +1,16 @@
 .container {
-  width: 80%;
+  width: 70%;
+  margin: auto;
+}
+
+.textarea-left-align {
+  margin-left: 10px;
+}
+
+.combobox-right-align {
+  margin-right: 30px;
+}
+
+.checkbox-right-align {
+  margin-right: 5px;
 }
